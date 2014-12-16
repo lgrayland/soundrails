@@ -1,10 +1,17 @@
 <div class="small-6 small-centered columns">
   <h2><%= @track.name %></h2>
+
+  <p>
+    <%= @track.track_file.url %>
+  </p>
   
   <div>
     <h3>Added by:</h3>
     <p><%= @track.user.try :email %></p>
   </div>
+  <audio controls="controls">
+      <source src="<%= @track.track_file.url %>" />    
+  </audio>
   
   <br>
   <%= link_to 'Edit', edit_track_path(@track) %> |

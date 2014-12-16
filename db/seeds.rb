@@ -12,3 +12,9 @@ Genre.delete_all
 Genre.create!(name: "Dance")
 Genre.create!(name: "Rock")
 Genre.create!(name: "Pop")
+
+User.delete_all
+
+User.create!(email: "admin@admin.com", password: "password", role: "admin",)
+User.create!(email: "artist@artist.com", password: "password", role: "artist",)
+User.create!(email: "user@user.com", password: "password", role: "user",)
