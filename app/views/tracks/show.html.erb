@@ -1,1 +1,15 @@
-show.html.erb
+<div class="small-6 small-centered columns">
+  <h2><%= @track.name %></h2>
+  
+  <div>
+    <h3>Added by:</h3>
+    <p><%= @track.user.try :email %></p>
+  </div>
+  
+  <br>
+  <%= link_to 'Edit', edit_track_path(@track) %> |
+  <%= link_to 'Back', track_path %>
+</div>
+
+
+

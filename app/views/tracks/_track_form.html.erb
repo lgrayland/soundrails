@@ -1,0 +1,17 @@
+<div>
+<%= f.label :name %>
+<%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :genre_id, 'Genre' %><br>
+  <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
+</div>
+  
+<%= f.label :details %>
+<%= f.text_area :details %>
+
+<!-- <div>
+  <%#= f.label :recipe_image %>
+  <%#= f.file_field :recipe_image %>
+</div> -->

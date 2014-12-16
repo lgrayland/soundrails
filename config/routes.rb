@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :index]
 
   authenticated :user do
-    root to: 'users#show', as: :authenticated_root
+    root to: "users#show", as: :authenticated_root
   end
 
-  root 'home#index'
-  
+  unauthenticated do
+    root to: "home#index"
+  end
   resources :genres
   resources :tracks
 
