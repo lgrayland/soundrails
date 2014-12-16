@@ -1,0 +1,48 @@
+<div class="fixed">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to 'SoundRails', root_path %></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <!-- <section class="top-bar-section">
+      <ul class="left">
+        <li class='login'></li>
+          <%# if current_user %>
+          <li class="username"><%#= current_user.email %></li>
+          <li><%#= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <%# else %>
+          <li><%#= link_to "Sign In", new_user_session_path %></li>
+          <li><%#= link_to "Register", new_user_registration_path %></li>
+          <%# end %>
+      </ul> -->
+      <!-- Right Nav Section -->
+      <!-- <ul class="right">
+        <li class="has-dropdown">
+          <%#= link_to 'Categories', categories_path %>
+          <ul class="dropdown">
+            <li><%#= link_to 'All Categories', categories_path %></li>
+            <li><%#= link_to 'New Category', new_category_path if can? :create, Recipe %></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <%#= link_to 'Recipes', recipes_path %>
+          <ul class="dropdown">
+            <li><%#= link_to 'All Recipes', recipes_path %></li>
+            <li><%#= link_to 'New Recipe', new_recipe_path %></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <%#= link_to 'Ingredients', ingredients_path %>
+          <ul class="dropdown">
+            <li><%#= link_to 'All Ingredients', ingredients_path %></li>
+            <li><%#= link_to 'New Ingredient', new_ingredient_path %></li>
+          </ul>
+        </li>
+      </ul> -->
+    <!-- </section> -->
+  </nav>
+</div>

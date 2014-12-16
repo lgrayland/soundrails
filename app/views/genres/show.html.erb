@@ -1,0 +1,14 @@
+<div class="small-4 small-centered columns">
+<h2><%= @genre.name %></h2>
+
+<% if @genre.tracks.any?  %>
+<h3>Tracks in this category:</h3>
+<% @genre.tracks.each do |track| %>
+
+<%= track.name %><br>
+<% end %>
+<% else %>
+<p>No tracks have been added to this genre </p>
+
+<% end %>
+</div>

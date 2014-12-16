@@ -1,0 +1,6 @@
+<div class="small-4 small-centered columns">
+  <%= form_for @genre do |f| %>
+  <%= render partial: 'genre_form', locals: { f: f } %>
+  <%= f.submit 'Add the genre!' %>
+  <% end %>
+</div>
