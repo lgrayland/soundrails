@@ -1,18 +1,25 @@
-<div class="small-6 small-centered columns">
-<h1>Profile</h1>
+<div class="small-8 small-centered columns">
+  
+  <%= image_tag @user.user_image.url %>
 
-<% @user.tracks.each do |track| %>
+  <h1><%= @user.email %></h1>
 
-<h2><%= track.name %></h2>
-<audio controls="controls">
+  <h2>Bio:</h2>
+  <%= @user.bio %>
+  <hr>
+
+  <h2>Tracks:</h2>
+  <% @user.tracks.each do |track| %>
+  <h3><%= track.name %></h3>
+  <audio controls="controls">
     <source src="<%= track.track_file.url %>" />    
-</audio>
-
-<br>
-<%= link_to "Show", track %> | 
-<%= link_to "Edit", edit_track_path(track) %> |
-<%= link_to "Delete!", track_path(track), method: :delete, data: {confirm: "Are you sure"} %>
-
-<% end %>
-
-</div>
+    </audio>
+    <br>
+    <%= link_to "Show", track %> | 
+    <%= link_to "Edit", edit_track_path(track) %> |
+    <%= link_to "Delete!", track_path(track), method: :delete, data: {confirm: "Are you sure"} %>
+    <% end %>
+    <hr>
+    
+    <%= link_to "Edit profile", edit_user_path(@user) %>
+  </div>

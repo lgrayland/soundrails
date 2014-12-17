@@ -8,14 +8,7 @@ body {
   background:url(bg.jpg) center fixed;
   background-size:cover;
 }
-.small-6 {
-  background:rgba(0, 0, 0, 0.5);
-  padding:10px;
-  margin
-  border-radius:15px;
-  color:white;
-}
-.small-4 {
+.small-4, .small-6, .small-8 {
   background:rgba(0, 0, 0, 0.5);
   padding:10px;
   margin
