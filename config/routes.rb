@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   unauthenticated do
     root to: "home#index"
   end
+
   resources :genres
-  resources :tracks
+  resources :tracks do
+    resources :comments
+  end
 
 end

@@ -1,17 +1,26 @@
-<div class="small-6 small-centered columns">
-  <h2><%= @track.name %></h2>
 
-  <p>
-    <%= @track.track_file.url %>
-  </p>
+  <h2><%= @track.name %></h2>
   
   <div>
     <h3>Added by:</h3>
     <p><%= @track.user.try :email %></p>
   </div>
+
   <audio controls="controls">
       <source src="<%= @track.track_file.url %>" />    
   </audio>
+<hr>
+  <% @track.comments.each do |comment| %>
+  <%= comment.comment %>
+  <br>
+  <%= comment.user.try :email %>
+  <hr>
+  <% end %>
+
+  <%= form_for [@track, @track.comments.new] do |f| %>
+  <%= render partial: 'comments/form', locals: { f: f } %>
+  <%= f.submit 'Add Comment!' %>
+  <% end %>
   
   <br>
   <%= link_to 'Edit', edit_track_path(@track) %> |
