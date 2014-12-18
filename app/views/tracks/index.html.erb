@@ -6,12 +6,12 @@
     <%= image_tag track.track_image.thumb.url %>
     <h2><%= track.name %></h2>
 
-    <%= link_to "Show", track %>
-    <%= link_to "Edit", edit_track_path(track) if can? :edit, track %>
-    <%= link_to "Delete!", track_path(track), method: :delete, data: {confirm: "Are you sure"} if can? :destroy, track %>
-    <%= link_to 'Approve comments', track_comments_path(track) if can?(:approve, track) && track.comments_needing_approval.any? %>
+    <%= link_to "Show", track, class: "tiny button" %>
+    <%= link_to "Edit", edit_track_path(track), class: "tiny button" if can? :edit, track %>
+    <%= link_to "Delete!", track_path(track), method: :delete, data: {confirm: "Are you sure"}, class: "tiny button" if can? :destroy, track %>
+    <%= link_to 'Approve comments', track_comments_path(track), class: "tiny button" if can?(:approve, track) && track.comments_needing_approval.any? %>
     <% end %>
   </div>
   <hr>
-  <%= link_to 'New Track', new_track_path %>
+  <%= link_to 'New Track', new_track_path, class: "tiny button" %>
 </div>

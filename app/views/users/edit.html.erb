@@ -1,6 +1,6 @@
 <div class="small-6 small-centered columns">
 <%= form_for @user do |f| %>
 <%= render partial: 'form', locals: { f: f } %>
-<%= f.submit 'Edit Profile!' %>
+<%= f.submit 'Edit Profile!', class: "tiny button" %>
 <% end %>
 </div>

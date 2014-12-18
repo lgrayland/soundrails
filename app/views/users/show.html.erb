@@ -1,7 +1,7 @@
 <div class="small-8 small-centered columns">
 
   <div class="profile-pic">
-    <%= image_tag @user.user_image.profile.url %>
+    <%= image_tag @user.user_image.profile.url, class: "profile-pic" %>
   </div>
 
   <h1><%= @user.email %></h1>
@@ -25,5 +25,5 @@
   <% end %>
 
   <%= link_to "Comments needing approval", tracks_with_comments_needing_approval_tracks_path, class: "tiny button" if can? :update, Comment %>
-  <%= link_to "Edit profile", edit_user_path(@user), class: "tiny button" %>
+  <%= link_to "Edit profile", edit_user_path(@user), class: "tiny button" if can? :update, User%>
 </div>
