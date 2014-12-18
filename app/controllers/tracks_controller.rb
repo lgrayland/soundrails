@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-
+  load_and_authorize_resource
   def index
       @tracks = Track.all
     end
@@ -9,7 +9,6 @@ class TracksController < ApplicationController
     end
 
     def create
-      # @track = Track.new(track_params)
       @track = current_user.tracks.new(track_params)
       @track.save
       redirect_to(@track)
@@ -35,8 +34,13 @@ class TracksController < ApplicationController
       redirect_to(tracks_path)
     end
 
+    def tracks_with_comments_needing_approval
+      @tracks = Track.with_comments_waiting_approval
+      render :index
+    end
+
     def track_params
-      params.require(:track).permit(:name, :genre_id, :details, :user_id, :track_file)
+      params.require(:track).permit(:name, :genre_id, :details, :user_id, :track_file, :track_image)
     end
 
 end

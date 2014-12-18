@@ -1,4 +1,5 @@
 <div class="small-6 small-centered columns">
+  <%= image_tag @track.track_image.thumb.url %>
   <h2><%= @track.name %></h2>
   
   <div>
@@ -25,7 +26,6 @@
   <% end %>
   <br>
 
-  <%= link_to 'Approve comments', track_comments_path(@track) %>
-  <%= link_to 'Edit', edit_track_path(@track) %> |
+  <%= link_to 'Edit', edit_track_path(@track), class: "tiny button" if can? :edit, @track %>
   <%= link_to 'Back', tracks_path %>
 </div>

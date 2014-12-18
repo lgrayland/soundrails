@@ -17,8 +17,7 @@ User.delete_all
 
 User.create!(email: "admin@admin.com", password: "password", role: "admin",)
 User.create!(email: "artist@artist.com", password: "password", role: "artist",)
-User.create!(email: "user@user.com", password: "password", role: "user",)
 
-# Comment.delete_all
+Comment.delete_all
 
-# Track.delete_all
+Track.delete_all

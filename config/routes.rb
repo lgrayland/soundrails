@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   
   resources :genres
   resources :tracks do
+    collection do
+get :tracks_with_comments_needing_approval
+    end
     resources :comments do
       collection do
         put :approve

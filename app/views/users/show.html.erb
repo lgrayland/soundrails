@@ -1,25 +1,29 @@
 <div class="small-8 small-centered columns">
-  
-  <%= image_tag(@user.user_image.detail.url) %>
+
+  <div class="profile-pic">
+    <%= image_tag @user.user_image.profile.url %>
+  </div>
 
   <h1><%= @user.email %></h1>
 
   <h2>Bio:</h2>
   <%= @user.bio %>
   <hr>
-
-  <h2>Tracks:</h2>
-  <% @user.tracks.each do |track| %>
-  <h3><%= track.name %></h3>
-  <audio controls="controls">
-    <source src="<%= track.track_file.url %>" />    
-    </audio>
-    <br>
-    <%= link_to "Show", track %> | 
-    <%= link_to "Edit", edit_track_path(track) %> |
-    <%= link_to "Delete!", track_path(track), method: :delete, data: {confirm: "Are you sure"} %>
+  
+  <% if @user.tracks.any? %>
+    <h2>Tracks:</h2>
+    <% @user.tracks.each do |track| %>
+      <div>
+      <%= image_tag track.track_image.thumb.url %>
+      <h3><%= track.name %></h3>
+      <%= link_to "Show", track, class: "tiny button" %>
+      <%= link_to "Edit", edit_track_path(track), class: "tiny button" %>
+      <%= link_to "Delete!", track_path(track), class: "tiny button", method: :delete, data: {confirm: "Are you sure"} if can? :destroy, track %>
+    </div>
     <% end %>
     <hr>
-    
-    <%= link_to "Edit profile", edit_user_path(@user) %>
-  </div>
+  <% end %>
+
+  <%= link_to "Comments needing approval", tracks_with_comments_needing_approval_tracks_path, class: "tiny button" if can? :update, Comment %>
+  <%= link_to "Edit profile", edit_user_path(@user), class: "tiny button" %>
+</div>

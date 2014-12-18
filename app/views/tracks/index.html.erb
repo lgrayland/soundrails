@@ -2,18 +2,16 @@
   <h1>Choose a track</h1>
 
   <% @tracks.each do |track| %>
+  <div>
+    <%= image_tag track.track_image.thumb.url %>
+    <h2><%= track.name %></h2>
 
-  <h2><%= track.name %></h2>
-  <audio controls="controls">
-    <source src="<%= track.track_file.url %>" />    
-    </audio>
-
-    <br>
-    <%= link_to "Show", track %> | 
-    <%= link_to "Edit", edit_track_path(track) %> |
-    <%= link_to "Delete!", track_path(track), method: :delete, data: {confirm: "Are you sure"} %>
-
+    <%= link_to "Show", track %>
+    <%= link_to "Edit", edit_track_path(track) if can? :edit, track %>
+    <%= link_to "Delete!", track_path(track), method: :delete, data: {confirm: "Are you sure"} if can? :destroy, track %>
+    <%= link_to 'Approve comments', track_comments_path(track) if can?(:approve, track) && track.comments_needing_approval.any? %>
     <% end %>
-    <hr>
-    <%= link_to 'New Track', new_track_path %>
   </div>
+  <hr>
+  <%= link_to 'New Track', new_track_path %>
+</div>

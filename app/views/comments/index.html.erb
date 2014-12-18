@@ -1,5 +1,5 @@
 <div class="small-8 small-centered columns">
-  <h5><small>Comments for the track titled:</small> <%= @track.name %></h5>
+  <h5>Comments for the track titled: <%= @track.name %></h5>
   <hr>
   <h5>Moderation table</h5>
   <%= form_tag approve_track_comments_path, method: :put do %>
