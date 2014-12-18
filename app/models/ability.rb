@@ -18,6 +18,9 @@ class Ability
       can :read, User, id: user.id
       can :update, User, id: user.id
 
+      can :create, Comment
+      can :update, Comment
+      
     else
       can :read, :all
     end

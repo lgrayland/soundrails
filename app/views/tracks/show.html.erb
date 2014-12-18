@@ -13,7 +13,7 @@
   
   <%= form_for [@track, Comment.new] do |f| %>
   <%= render partial: 'comments/form', locals: { f: f } %>
-  <%= f.submit 'Add Comment!' %>
+  <%= f.submit 'Add Comment!', class: "tiny button" %>
   <% end %>
 
   <% @track.comments.approved.each do |comment| %>
@@ -21,11 +21,11 @@
   <%= comment.comment %>
   <br>
   <p>Posted by: <%= comment.user.try :email %></p>
-  <p>Date: <%= comment.user.try :created_at %>
+  <p>Date: <%= comment.user.try :created_at  %>
   <hr>
   <% end %>
   <br>
 
   <%= link_to 'Edit', edit_track_path(@track), class: "tiny button" if can? :edit, @track %>
-  <%= link_to 'Back', tracks_path %>
+  <%= link_to 'Back', tracks_path, class: "tiny button" %>
 </div>

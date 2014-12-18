@@ -1,1 +1,17 @@
-home index
+<div class="small-6 small-centered columns">
+  <h1>Welcome to SoundRails</h1>
+  <h2>Sign up for more great features</h2>
+<%= link_to 'Sign Up!', new_user_registration_path, class: "tiny button" %>
+
+  <% @tracks.each do |track| %>
+  <div>
+    <%= image_tag track.track_image.thumb.url %>
+    <h2><%= track.name %></h2>
+
+    <%= link_to "Show", track, class: "tiny button" %>
+
+    <% end %>
+  </div>
+  <hr>
+  
+</div>
