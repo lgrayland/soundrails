@@ -16,7 +16,7 @@
   <% end %>
 
   <% @track.comments.approved.each do |comment| %>
-  <%= image_tag comment.user.user_image %>
+  <%= image_tag(comment.user.user_image.thumb.url) %>
   <%= comment.comment %>
   <br>
   <p>Posted by: <%= comment.user.try :email %></p>
