@@ -12,4 +12,8 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  scope :approved, -> { where status: 'approved'}
+  scope :draft, -> { where status: 'draft'}
+  
 end

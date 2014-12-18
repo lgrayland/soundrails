@@ -1,0 +1,50 @@
+<div class="small-8 small-centered columns">
+  <h5><small>Comments for the track titled:</small> <%= @track.name %></h5>
+  <hr>
+  <h5>Moderation table</h5>
+  <%= form_tag approve_track_comments_path, method: :put do %>
+  <table>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Comment</th>
+      <th>Status</th>
+
+    </tr>
+
+    <% @track.comments.draft.each do |comment| %>
+    <tr>
+      <td><%= check_box_tag "comment_ids[]", comment.id %></td>
+      <td><%= comment.user_id %> </td>
+      <td><%= comment.comment %></td>
+      <td><%= comment.status%></td>
+      <td></td>
+      
+    </tr>
+    <% end %>
+  </table>
+  <%= submit_tag "Approve Comments"%> 
+  <% end %>
+
+  <h5>All Approved Comments</h5>
+  <table>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Comment</th>
+      <th>Status</th>
+
+    </tr>
+    <% @track.comments.approved.each do |comment| %>
+    <tr>
+      <td><%= comment.id %></td>
+      <td><%= comment.user_id %></td>
+      <td><%= comment.comment %></td>
+      <td><%= comment.status%></td>
+
+    </tr>
+    <% end %>
+  </table>
+
+  <hr>
+</div>

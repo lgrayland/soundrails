@@ -10,18 +10,22 @@
     </audio>
   <hr>
   
-  <%= form_for [@track, @track.comments.new] do |f| %>
+  <%= form_for [@track, Comment.new] do |f| %>
   <%= render partial: 'comments/form', locals: { f: f } %>
   <%= f.submit 'Add Comment!' %>
   <% end %>
 
-  <% @track.comments.all.each do |comment| %>
+  <% @track.comments.approved.each do |comment| %>
+  <%= image_tag comment.user.user_image %>
   <%= comment.comment %>
   <br>
   <p>Posted by: <%= comment.user.try :email %></p>
+  <p>Date: <%= comment.user.try :created_at %>
   <hr>
   <% end %>
   <br>
+
+  <%= link_to 'Approve comments', track_comments_path(@track) %>
   <%= link_to 'Edit', edit_track_path(@track) %> |
   <%= link_to 'Back', tracks_path %>
 </div>

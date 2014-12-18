@@ -21,9 +21,7 @@
       </ul>
       <!-- Right Nav Section -->
       <ul class="right">
-        <li>
-          <%= link_to 'Profile', authenticated_root_path %>
-        </li>
+        <li><%= link_to 'Profile', authenticated_root_path %></li>
         <li class="has-dropdown">
           <%= link_to 'Genres', genres_path %>
           <ul class="dropdown">
@@ -38,13 +36,6 @@
             <li><%= link_to 'New Track', new_track_path %></li>
           </ul>
         </li>
-        <!-- <li class="has-dropdown">
-          <%#= link_to 'Ingredients', ingredients_path %>
-          <ul class="dropdown">
-            <li><%#= link_to 'All Ingredients', ingredients_path %></li>
-            <li><%#= link_to 'New Ingredient', new_ingredient_path %></li>
-          </ul>
-        </li> -->
       </ul>
     </section>
   </nav>
